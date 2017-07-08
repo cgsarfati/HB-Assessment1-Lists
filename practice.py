@@ -86,7 +86,7 @@ def smallest_int(numbers):
     if len(numbers) == 0:
         return None
     else:
-        #sort list from min to max
+        # sort list from min to max
         smallest_int_list = sorted(numbers)
         return smallest_int_list[0]
 
@@ -113,7 +113,9 @@ def largest_int(numbers):
     if len(numbers) == 0:
         return None
     else:
+        # sort list from min to max
         largest_int_list = sorted(numbers)
+        # access last element in list which is max num
         return largest_int_list[-1]
 
 
@@ -223,6 +225,7 @@ def join_strings(words):
         ''
     """
 
+    #will be continually appended as for loop executes
     join_string = ""
 
     for word in words:
@@ -251,7 +254,14 @@ def average(numbers):
     a feel free to provide a good solution here.)
     """
 
-    return 0
+    # if empty list, print error message
+    if len(numbers) == 0:
+        print "There are no numerical values in this list, please try again."
+    else:
+        # use sum function in this file vs. rewriting sum algorithm
+        sum_num = sum_numbers(numbers)
+        avg_num = float(sum_num) / len(numbers)
+        return avg_num
 
 
 def join_strings_with_comma(words):
@@ -271,7 +281,13 @@ def join_strings_with_comma(words):
         'Pretzel'
     """
 
-    return ""
+    # make if statement so string won't have comma if only 1 word
+    if len(words) == 1:
+        return words[0]
+    else:
+        # convert list to string with comma in between; add 1 space after comma
+        converted_string = ', '.join(words)
+        return converted_string
 
 
 def reverse_list(items):
@@ -297,7 +313,19 @@ def reverse_list(items):
         ['apple', 'berry', 'cherry']
     """
 
-    return []
+    reversed_list = []
+
+    # get last index of list as starting value
+    index = len(items) - 1
+
+    while index > 0:
+        for item in items:
+            # continually append empty list with items from end to beg of list
+            reversed_list.append(items[index])
+            # subtract index by 1 to access next item on left side in list
+            index -= 1
+
+    return reversed_list
 
 
 def reverse_list_in_place(items):
@@ -323,7 +351,18 @@ def reverse_list_in_place(items):
         ['I', 'love', 'cookies']
     """
 
-    return []
+    #use list reassignment
+
+    starting_index = 0
+    ending_index = len(items) - 1
+
+    while starting_index < ending_index:
+        for item in items:
+            items[starting_index] = items[ending_index]
+            starting_index += 1
+            ending_index -= 1
+
+    return items
 
 
 def duplicates(items):
@@ -352,7 +391,20 @@ def duplicates(items):
         ['apple', 'apple', 'berry']
     """
 
-    return []
+    duplicates = []
+
+    for item in items:
+        # determine if item appears more than once in list
+        if items.count(item) > 1:
+            # if so, append that item to empty list
+            duplicates.append(item)
+
+    # remove duplicates in list by converting to set data structure
+    duplicates = set(duplicates)
+    # convert back to a list
+    duplicates = list(duplicates)
+
+    return duplicates
 
 
 def find_letter_indices(words, letter):
