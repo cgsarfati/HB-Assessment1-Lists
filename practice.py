@@ -86,8 +86,9 @@ def smallest_int(numbers):
     if len(numbers) == 0:
         return None
     else:
-        new_numbers = sorted(numbers)
-        return new_numbers[0]
+        #sort list from min to max
+        smallest_int_list = sorted(numbers)
+        return smallest_int_list[0]
 
 
 def largest_int(numbers):
@@ -109,7 +110,11 @@ def largest_int(numbers):
         True
     """
 
-    return 0
+    if len(numbers) == 0:
+        return None
+    else:
+        largest_int_list = sorted(numbers)
+        return largest_int_list[-1]
 
 
 def halvesies(numbers):
@@ -127,7 +132,12 @@ def halvesies(numbers):
         [0.5, 2.5]
     """
 
-    return []
+    halved_numbers = []
+
+    for number in numbers:
+        halved_numbers.append(float(number) / 2)
+
+    return halved_numbers
 
 
 def word_lengths(words):
@@ -139,7 +149,8 @@ def word_lengths(words):
         [5, 3, 5, 4]
     """
 
-    return []
+    word_lengths_list = [len(word) for word in words]
+    return word_lengths_list
 
 
 def sum_numbers(numbers):
@@ -159,7 +170,12 @@ def sum_numbers(numbers):
         0
     """
 
-    return None
+    count = 0
+
+    for number in numbers:
+        count += number
+
+    return count
 
 
 def mult_numbers(numbers):
@@ -182,7 +198,12 @@ def mult_numbers(numbers):
         1
     """
 
-    return None
+    count = 1
+
+    for number in numbers:
+        count *= number
+
+    return count
 
 
 def join_strings(words):
@@ -202,7 +223,12 @@ def join_strings(words):
         ''
     """
 
-    return "Not the right thing"
+    join_string = ""
+
+    for word in words:
+        join_string += word
+
+    return join_string
 
 
 def average(numbers):
