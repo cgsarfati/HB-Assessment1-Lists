@@ -18,7 +18,8 @@ def print_list(items):
         9
     """
 
-    print("the wrong thing")
+    for item in items:
+        print item
 
 
 def long_words(words):
@@ -38,7 +39,9 @@ def long_words(words):
         []
     """
 
-    return ['the wrong thing']
+    long_words = [word for word in words if len(word) > 4]
+
+    return long_words
 
 
 def n_long_words(words, n):
@@ -56,7 +59,9 @@ def n_long_words(words, n):
         ['apples', 'bananas']
     """
 
-    return ['the wrong thing']
+    n_long_words = [word for word in words if len(word) > n]
+
+    return n_long_words
 
 
 def smallest_int(numbers):
@@ -78,7 +83,11 @@ def smallest_int(numbers):
         True
     """
 
-    return 100
+    if len(numbers) == 0:
+        return None
+    else:
+        new_numbers = sorted(numbers)
+        return new_numbers[0]
 
 
 def largest_int(numbers):
