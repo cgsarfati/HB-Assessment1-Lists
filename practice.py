@@ -350,19 +350,15 @@ def reverse_list_in_place(items):
         >>> orig
         ['I', 'love', 'cookies']
     """
-
-    #use list reassignment
-
     starting_index = 0
     ending_index = len(items) - 1
 
     while starting_index < ending_index:
-        for item in items:
-            items[starting_index] = items[ending_index]
-            starting_index += 1
-            ending_index -= 1
-
-    return items
+        # swap beg and end of list using indices
+        items[starting_index], items[ending_index] = items[ending_index], items[starting_index]
+        # close in to middle of list by 1
+        starting_index += 1
+        ending_index -= 1
 
 
 def duplicates(items):
