@@ -430,7 +430,16 @@ def find_letter_indices(words, letter):
     `None`.)
     """
 
-    return []
+    indices_list = []
+
+    # use enumerate to get easy access of index and word vs range(len())
+    for index, word in enumerate(words):
+        if letter in word:
+            indices_list.append(index)
+        else:
+            indices_list.append(None)
+
+    return indices_list
 
 
 #####################################################################
